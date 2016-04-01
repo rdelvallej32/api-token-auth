@@ -20,6 +20,11 @@ $('#sign-out').on('submit', function (event) {
   event.preventDefault();
   authApi.signOut(authUi.signOutSuccess, authUi.failure);
 });
+$('#password-change').on('submit', function (event) {
+  let data = getFormFields(this);
+  event.preventDefault();
+  authApi.passwordChange(authUi.success, authUi.failure, data);
+});
 
 };
 

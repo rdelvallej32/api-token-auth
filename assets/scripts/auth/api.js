@@ -37,8 +37,23 @@ const signOut = (success, failure) => {
   .fail(failure);
 };
 
+const passwordChange = (success, failure, data) => {
+  //if(!app.user) bad;
+  $.ajax({
+    method: "PATCH",
+    url: app.api + '/change-password/' + app.user.id,
+    data,
+    headers: {
+      Authorization: 'Token token='+ app.user.token,
+    },
+  })
+  .done(success)
+  .fail(failure);
+};
+
 module.exports = {
   signUp,
   signIn,
   signOut,
+  passwordChange,
 };
